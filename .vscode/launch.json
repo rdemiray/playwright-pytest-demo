@@ -1,0 +1,17 @@
+// .vscode/launch.json
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run Pytest",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "pytest",
+      "justMyCode": false,
+      "args": [
+        "${file}",
+        "--html=reports/report.html"
+      ]
+    }
+  ]
+}
