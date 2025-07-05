@@ -1,7 +1,9 @@
-class CarbonitePersonalTrialPage:
+from pages.base_page import BasePage
+class CarbonitePersonalTrialPage(BasePage):
+    
     def __init__(self, page):
-        self.page = page
-        self.url = "https://www.carbonite.com/personal/trial/"
+        super().__init__(page, url="https://www.carbonite.com/personal/trial/")
+        
 
     ### Locators for elements on the Carbonite Personal Trial page ###
     
@@ -33,10 +35,22 @@ class CarbonitePersonalTrialPage:
     def locator_for_claim_button(self):
         return self.page.get_by_role("button", name="Claim Free Trial")
     
+    def locator_for_email_address_error(self):
+        return self.page.get_by_text("The Email address field is required")
+    
+    def locator_for_confirm_email_error(self):
+        return self.page.get_by_text("The Confirm email field is required")
+    
+    def locator_for_password_error(self):
+        return self.page.get_by_text("The Password field is required")
+    
+    def locator_for_confirm_password_error(self):
+        return self.page.get_by_text("The Confirm your password field is required")
+    
+    def locator_for_i_am_not_a_robot_checkbox_error(self):
+        return self.page.get_by_text("This field is required*")
+    
     ### Methods to interact with the Carbonite Personal Trial page ###
-
-    def navigate_to_page(self):
-        self.page.goto(self.url)
     
     def check_locator_for_email_communications_checkbox(self):
         self.page.get_by_role("checkbox", name="YES. I would like to receive").check()
@@ -48,12 +62,5 @@ class CarbonitePersonalTrialPage:
         self.locator_for_country_of_residence().click()
         self.locator_for_country_of_residence_form_select_button().click()
         self.locator_for_country_in_the_form(country).click()
-
-
-
     
-
-    
-    
-
-    
+  
