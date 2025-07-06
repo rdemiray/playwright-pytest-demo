@@ -1,4 +1,5 @@
 from pages.base_page import BasePage
+from pages.download_and_installation_page import DownloadAndInstallationPage
 class CarbonitePersonalTrialPage(BasePage):
     
     def __init__(self, page):
@@ -56,11 +57,22 @@ class CarbonitePersonalTrialPage(BasePage):
         self.page.get_by_role("checkbox", name="YES. I would like to receive").check()
 
     def click_i_am_not_a_robot_checkbox(self):
-        self.page.locator("iframe[name=\"a-i8qo26dcv2is\"]").content_frame.get_by_role("checkbox", name="I'm not a robot").click()
+        # self.page.locator("iframe[name=\"a-i8qo26dcv2is\"]").content_frame.get_by_role("checkbox", name="I'm not a robot").click()
+        # self.page.locator("iframe[name=\"a-lpo2wsx6063v\"]").content_frame.get_by_role("checkbox", name="I'm not a robot").click()
+        captcha_frame_locator = self.page.frame_locator('iframe[title="reCAPTCHA"]')
+        captcha_frame_locator.get_by_role("checkbox", name="I'm not a robot").click()
+
+        """ Alternatively, 	
+        •	Mock reCAPTCHA (e.g., disable in test/staging)
+	    •	Use test keys: https://developers.google.com/recaptcha/docs/faq#can-i-use-recaptcha-globally
+        """
     
     def select_country_of_residence(self, country):
-        self.locator_for_country_of_residence().click()
         self.locator_for_country_of_residence_form_select_button().click()
         self.locator_for_country_in_the_form(country).click()
+
+    def click_claim_button(self):
+        self.locator_for_claim_button().click()
+        return DownloadAndInstallationPage(self.page)
     
   

@@ -1,5 +1,7 @@
+import pytest
 from pages.carbonite_personal_trial_page import CarbonitePersonalTrialPage
 
+@pytest.mark.tc1
 def test_carbonite_ui_fields(page):
     carbonitePage = CarbonitePersonalTrialPage(page)
     carbonitePage.navigate_to_page()
@@ -11,6 +13,7 @@ def test_carbonite_ui_fields(page):
     assert carbonitePage.locator_for_country_of_residence().is_visible(), "Country of residence field is not visible"
     assert carbonitePage.locator_for_claim_button().is_visible(), "Claim Free Trial button is not visible"
 
+@pytest.mark.tc2
 def test_carbonite_ui_field_validations(page):
     carbonitePage = CarbonitePersonalTrialPage(page)
     
