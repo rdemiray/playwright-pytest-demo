@@ -7,6 +7,15 @@ This framework demonstrates two key automation capabilities:
 
 - **Web Automation with Playwright:** Automate browser interactions for web applications using Playwright, enabling robust end-to-end testing with Python and pytest.
 - **Native Mac Installer Automation:** Automate native macOS installer workflows using AppleScript and `osascript`, allowing for seamless testing and scripting of application installations on Mac.
+
+## Folder Structure
+
+The framework is organized into the following main directories:
+
+- **`data/`**: Contains test data files (e.g., JSON, CSV) used for parameterizing and driving tests.
+- **`pages/`**: Implements the Page Object Model; each file represents a page or component with its locators and actions.
+- **`tests/`**: Includes all test scripts, organized by feature or functionality.
+- **`utils/`**: Utility modules and helper functions shared across tests (e.g., custom assertions, configuration, logging).
 This project is a Python-based automation framework utilizing Playwright and pytest. It follows the Page Object Model (POM) design pattern, promoting maintainability and scalability. The framework is structured in multiple layers, separating test logic, page interactions, and test data. Test data abstraction allows for easy management and reusability across different test scenarios.
 
 ## Setup and Installation
