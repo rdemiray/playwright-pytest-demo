@@ -1,7 +1,7 @@
 from pages.installer_dialog_page import MacInstallerDialogPage
 import pytest
 import os
-
+import shutil
 
 @pytest.mark.tc4
 def test_mac_installer_dialog():
@@ -39,5 +39,6 @@ def test_mac_installer_dialog():
     # Confirm that the process is no longer running
     assert not mac_installer_page.is_process_running("CarboniteInstall"), "Process is still running after clicking Abort."
 
-
-    assert True
+    # Clean up the .app
+    shutil.rmtree(app_path, ignore_errors=True)
+    assert not os.path.exists(app_path), f"{app_path} was not deleted."
