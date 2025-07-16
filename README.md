@@ -8,6 +8,17 @@ This framework demonstrates two key automation capabilities:
 - **Web Automation with Playwright:** Automate browser interactions for web applications using Playwright, enabling robust end-to-end testing with Python and pytest.
 - **Native Mac Installer Automation:** Automate native macOS installer workflows using AppleScript and `osascript`, allowing for seamless testing and scripting of application installations on Mac.
 
+This project is a Python-based automation framework utilizing Playwright and Pytest. It follows the Page Object Model (POM) design pattern with multiple layers of abstraction, promoting maintainability and scalability. The framework is structured in multiple layers, separating test logic, page interactions, and test data. 
+
+Test data abstraction allows for easy management and reusability across different test scenarios by making tests data-agnostic. With data-agnostic tests, one can esily parameterize tests with different data sets without modifying the test logic.
+
+POM desing pattern with multiple layers of abstraction helps make test cases/steps in the test layer almost look like natural language. With this approach, the framework is designed to be easy to read and understand, even for those who may not be familiar with programming or automation concepts. Bonuses:
+1. LLM integration can be used to generate test cases and steps in natural language, which can then be translated into code using the framework's abstractions. (paving way to no-code automation)
+
+2. Code-to-test or test-to-code auto-generation can easily be achieved with natural-language-looking tests which will help test documentation and maintenance.
+
+
+
 ## Folder Structure
 
 The framework is organized into the following main directories:
@@ -16,7 +27,8 @@ The framework is organized into the following main directories:
 - **`pages/`**: Implements the Page Object Model; each file represents a page or component with its locators and actions.
 - **`tests/`**: Includes all test scripts, organized by feature or functionality.
 - **`utils/`**: Utility modules and helper functions shared across tests (e.g., custom assertions, configuration, logging).
-This project is a Python-based automation framework utilizing Playwright and pytest. It follows the Page Object Model (POM) design pattern, promoting maintainability and scalability. The framework is structured in multiple layers, separating test logic, page interactions, and test data. Test data abstraction allows for easy management and reusability across different test scenarios.
+
+
 
 ## Setup and Installation
 
